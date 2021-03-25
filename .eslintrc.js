@@ -21,6 +21,8 @@ module.exports = {
     'import/extensions': 'off',
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   env: {
     browser: true,
