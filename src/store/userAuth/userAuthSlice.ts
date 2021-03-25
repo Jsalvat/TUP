@@ -14,9 +14,19 @@ const userAuthSlice = createSlice({
   name: 'userAuth',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<string>) => ({
+    register: (state, action: PayloadAction<any>) => ({
       ...state,
+      loading: true,
+    }),
+    registerOk: (state, action: PayloadAction<any>) => ({
+      ...state,
+      loading: false,
       user: action.payload,
+    }),
+    registerKo: (state, action: PayloadAction<string>) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
     }),
     logout: (state) => ({
       ...state,
