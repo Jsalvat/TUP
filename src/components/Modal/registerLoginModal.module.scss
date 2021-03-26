@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.loginModalContainer {
+  background-color: $background;
+  margin: 15% auto; /* 15% from the top and centered */
+  border: 2px solid $color-blue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 30%; /* Could be more or less, depending on screen size */
+  display: flex;
+  flex-direction: column;
+
+  span {
+    padding: 10px;
+  }
+}
+
+.titlecontainer {
+  padding: 10px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  background: $color-blue;
+  color: $background;
+}

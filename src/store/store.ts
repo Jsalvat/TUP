@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
+import registerLoginSlice from './registerLogin/registerLoginSlice';
 import actionWatcher from './sagas';
 import userAuthSlice from './userAuth/userAuthSlice';
 
 const appReducer = combineReducers({
   userAuth: userAuthSlice.reducer,
+  registerLogin: registerLoginSlice.reducer,
 });
 
 export type AppState = ReturnType<typeof appReducer>;

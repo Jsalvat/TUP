@@ -8,6 +8,9 @@ import {
   InputGroup,
   Box,
   Stack,
+  FormLabel,
+  FormControl,
+  FormHelperText,
 } from '@chakra-ui/react';
 import { connect } from 'react-redux';
 import styles from './register.module.scss';
@@ -29,6 +32,7 @@ const UnconnectedRegister: React.FC<RegisterProps> = ({
   registerUser,
 }) => {
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
   const [user, setUser] = useState<RegisterUserProps>({
     email: undefined,
     password: undefined,
@@ -53,38 +57,89 @@ const UnconnectedRegister: React.FC<RegisterProps> = ({
 
   return (
     <div className={styles.registerContainer}>
-      <Box maxW="sm" borderWidth="1px" borderRadius="lg" p={4}>
-        <Text fontSize="24px" color="teal" mb={4}>
-          Identifícate
+      <Box
+        maxW="xl"
+        w="400px"
+        borderWidth="1px"
+        borderRadius="lg"
+        p={4}
+        borderColor="teal"
+      >
+        <Text fontWeight="bold" fontSize="24px" color="teal" mb={2}>
+          Regístrate
         </Text>
-        <Stack spacing={4}>
-          <Input
-            placeholder="Email Usuario"
-            size="md"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handleChange(e, 'email')
-            }
-          />
-          <InputGroup size="md">
+        <Text fontSize="14px" as="sup" color="teal">
+          Esta es el primero y último cuestionario que os hacemos
+        </Text>
+        <Stack spacing={4} pt={4}>
+          <FormControl id="username">
+            <FormLabel>Nombre de Usuario</FormLabel>
             <Input
-              placeholder="Contraseña"
-              type={show ? 'text' : 'password'}
+              placeholder="Nombre de Usuario"
+              name="username"
               size="md"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleChange(e, 'password')
+                handleChange(e, 'username')
               }
             />
-            <InputRightElement width="4.5rem">
-              <Button
-                h="1.75rem"
-                size="sm"
-                onClick={() => setShow(!show)}
-                isDisabled={!user.password}
-              >
-                {show ? 'Hide' : 'Show'}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
+          </FormControl>
+          <FormControl id="email">
+            <FormLabel>Email</FormLabel>
+            <Input
+              placeholder="Email"
+              size="md"
+              name="email"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleChange(e, 'email')
+              }
+            />
+          </FormControl>
+          <FormControl id="email">
+            <FormLabel>Contraseña</FormLabel>
+            <InputGroup size="md">
+              <Input
+                placeholder="Contraseña"
+                type={show ? 'text' : 'password'}
+                size="md"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleChange(e, 'password')
+                }
+              />
+              <InputRightElement width="4.5rem">
+                <Button
+                  h="1.75rem"
+                  size="sm"
+                  onClick={() => setShow(!show)}
+                  isDisabled={!user.password}
+                >
+                  {show ? 'Hide' : 'Show'}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
+          <FormControl id="email">
+            <FormLabel>Repetir Contraseña</FormLabel>
+            <InputGroup size="md">
+              <Input
+                placeholder="Repetir Contraseña"
+                type={show2 ? 'text' : 'password'}
+                size="md"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleChange(e, 'repassword')
+                }
+              />
+              <InputRightElement width="4.5rem">
+                <Button
+                  h="1.75rem"
+                  size="sm"
+                  onClick={() => setShow(!show)}
+                  isDisabled={!user.password}
+                >
+                  {show ? 'Hide' : 'Show'}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
         </Stack>
         <Button
           isFullWidth
@@ -93,7 +148,7 @@ const UnconnectedRegister: React.FC<RegisterProps> = ({
           onClick={() => registerUser(user)}
           isLoading={loading}
         >
-          Login
+          Regístrate
         </Button>
       </Box>
     </div>

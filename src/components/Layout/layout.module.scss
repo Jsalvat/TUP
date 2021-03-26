@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.menu {
+  height: 6px;
+  background: $color-blue;
+}
+
+.generalContainer {
+  height: 100%;
+  .layoutContainer {
+    padding: 20px;
+    background: $background;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

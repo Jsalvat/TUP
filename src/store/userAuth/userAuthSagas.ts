@@ -2,9 +2,8 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { Await } from '../../api/types';
+import { reduxSagaFirebase } from '../../firebase';
 import userAuthSlice from './userAuthSlice';
-import { auth, reduxSagaFirebase } from '../../firebase';
-import { registerUserApi } from '../../api/api';
 
 function* registerUser(
   action: PayloadAction<{ email: string; password: string; name: string }>
